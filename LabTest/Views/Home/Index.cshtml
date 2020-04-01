@@ -1,0 +1,48 @@
+﻿@model SimpleViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h5 class="pb-5">Home page</h5>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Login" class="btn btn-primary">Login to see admin data</a>
+    }
+    else
+    {
+        <a asp-action="LogOff" class="btn btn-primary">Logout from system</a>
+    }
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="AddEmployee" class="btn btn-primary mt-5 mb-5">Add new employee</a>
+        <div class="table-responsive">
+            <table class="table mt-5">
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Position</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var e in Model.ViewEmployees)
+                {
+                    <tr>
+                        <td>@e.Name</td>
+                        <td>@e.Surname</td>
+                        <td>@e.Position</td>
+                        <td>
+                            <a asp-action="EditEmployee" asp-route-id="@e.Id" class="btn btn-primary">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-action="RemoveEmployee" asp-route-id="@e.Id"
+                               class="btn btn-primary" onclick="return confirm('Are you sure to remove selected employee?');">
+                                Remove
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>

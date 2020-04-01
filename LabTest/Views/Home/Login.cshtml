@@ -1,0 +1,35 @@
+﻿@model Auth
+@{
+    ViewBag.Title = "Authorization";
+    ViewBag.Description = "Authorization";
+}
+<div class="col-md-3 m-auto pt-5">
+    <div class="mt-5 mb-5">
+        <h5>Authorization *(root/admin)</h5>
+        <form asp-action="Login">
+            <div class="pt-3 pb-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            Login
+                        </div>
+                    </div>
+                    <input asp-for="Login" class="form-control"/>
+                </div>
+            </div>
+            <div class="pb-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            Password
+                        </div>
+                    </div>
+                    <input asp-for="Password" type="password" class="form-control"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Submit auth
+            </button>
+        </form>
+    </div>
+</div>
