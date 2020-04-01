@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+// ReSharper disable MemberCanBePrivate.Global, UnusedAutoPropertyAccessor.Global, AutoPropertyCanBeMadeGetOnly.Global
 namespace LabTest.Models
 {
     public static class UserMock

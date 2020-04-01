@@ -48,17 +48,16 @@ namespace LabTest.Models
 
     public class SimpleViewModel
     {
-        public List<SimpleViewItem> ViewEmployees;
-
+        public readonly List<SimpleViewItem> ViewEmployees;
         public SimpleViewModel(List<SimpleViewItem> viewEmployees) => ViewEmployees = viewEmployees;
     }
 
     public class SimpleViewItem
     {
-        public int Id;
-        public string Name;
-        public string Surname;
-        public string Position;
+        public readonly int Id;
+        public readonly string Name;
+        public readonly string Surname;
+        public readonly string Position;
 
         public SimpleViewItem(int id, string name, string surname, string position)
         {
