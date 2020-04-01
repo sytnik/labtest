@@ -41,7 +41,7 @@ namespace LabTest
                         .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                         .AddCookie(options =>
                         {
-                            options.LoginPath = new PathString("/Home/Index");
+                            options.LoginPath = new PathString("/Home/Login");
                             options.Cookie.Name = "labtest.admin";
                         });
                     collection.AddAntiforgery(options =>
