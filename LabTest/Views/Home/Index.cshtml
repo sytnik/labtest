@@ -35,10 +35,24 @@
                             <a asp-action="EditEmployee" asp-route-id="@e.Id" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <a asp-action="RemoveEmployee" asp-route-id="@e.Id"
-                               class="btn btn-primary" onclick="return confirm('Are you sure to remove selected employee?');">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#@Html.DisplayName("modal" + e.Id)">
                                 Remove
-                            </a>
+                            </button>
+                            <div id="@Html.DisplayName("modal" + e.Id)" class="modal fade" role="dialog" data-toggle="modal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            @await Html.PartialAsync("_DeleteEmployee", e)
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"data-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 }
